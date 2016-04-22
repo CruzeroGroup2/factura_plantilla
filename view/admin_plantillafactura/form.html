@@ -1,0 +1,80 @@
+{include="header"}
+<script src="//cdn.ckeditor.com/4.5.8/standard/ckeditor.js"></script>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <h1>{if="$fsc->action=='edit'"}Editar{else}Agregar{/if} Plantilla</h1>
+    </div>
+  </div>
+  <hr />
+  <form action="{$fsc->url()}" method="post">
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-8">
+        <div class="input-group">
+          <label for="nombre" class="input-group-addon">Nombre</label>
+          <input type="text" name="nombre" id="nombre" class="form-control" value="{$fsc->plantilla->getNombre()}" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="visible">Visible</label>
+        <input type="checkbox" name="visible" id="visible"{if="$fsc->plantilla->getVisible()"} checked="checked"{/if} />
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-8">
+        <div class="input-group">
+          <label for="descripcion" class="input-group-addon">Descripcion</label>
+          <input type="text" name="descripcion" id="descripcion" class="form-control" value="{$fsc->plantilla->getDescripcion()}"/>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-2">
+        <div class="input-group">
+          <label for="margin_left" class="input-group-addon">Margen Izq.</label>
+          <input type="text" name="margin_left" id="margin_left" class="form-control" value="{$fsc->plantilla->getMarginLeft()}"/>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="input-group">
+          <label for="margin_top" class="input-group-addon">Margen Sup.</label>
+          <input type="text" name="margin_top" id="margin_top" class="form-control" value="{$fsc->plantilla->getMarginTop()}"/>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="input-group">
+          <label for="margin_right" class="input-group-addon">Margen Der.</label>
+          <input type="text" name="margin_right" id="margin_right" class="form-control" value="{$fsc->plantilla->getMarginRight()}"/>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="input-group">
+          <label for="margin_bottom" class="input-group-addon">Margen Inf.</label>
+          <input type="text" name="margin_bottom" id="margin_bottom" class="form-control" value="{$fsc->plantilla->getMarginBottom()}"/>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-8">
+        <label for="plantilla">Plantilla</label>
+        <textarea name="plantilla" id="plantilla" class="form-control">
+          {function="html_entity_decode($fsc->plantilla->getPlantilla(), ENT_QUOTES | ENT_HTML401, 'UTF-8')"}
+        </textarea>
+        <script type="application/javascript">
+          CKEDITOR.replace( 'plantilla' );
+        </script>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-5 col-md-3 text-right">
+        <button type="reset" class="btn btn-default">Cancelar</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+
+{include="footer"}

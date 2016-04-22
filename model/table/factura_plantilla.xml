@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : factura_plantilla.xml
+    Description:
+        Estructura de la tabla factura_plantilla.
+-->
+<tabla>
+   <columna>
+      <nombre>id</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('factura_plantilla_id_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>nombre</nombre>
+      <tipo>character varying(16)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>descripcion</nombre>
+      <tipo>character varying(255)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>margin_left</nombre>
+      <tipo>integer</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>margin_top</nombre>
+      <tipo>integer</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>margin_right</nombre>
+      <tipo>integer</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>margin_bottom</nombre>
+      <tipo>integer</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>plantilla</nombre>
+      <tipo>LONGTEXT</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>visible</nombre>
+      <tipo>character varying(1)</tipo>
+      <nulo>NO</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>create_date</nombre>
+      <tipo>timestamp</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>update_date</nombre>
+      <tipo>timestamp</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <restriccion>
+      <nombre>uniq_nombre</nombre>
+      <consulta>UNIQUE (nombre)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>factura_plantilla_pkey</nombre>
+      <consulta>PRIMARY KEY (id)</consulta>
+   </restriccion>
+</tabla>
