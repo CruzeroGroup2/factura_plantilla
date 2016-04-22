@@ -71,7 +71,7 @@ class factura_plantilla extends fs_model {
      * @param array $data
      */
     public function __construct($data = array()) {
-        parent::__construct('factura_plantilla', 'plugins/impresion_por_template/');
+        parent::__construct('factura_plantilla', 'plugins/factura_plantilla/');
 
         $this->setValues($data);
     }
